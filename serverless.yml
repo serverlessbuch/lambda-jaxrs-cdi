@@ -1,0 +1,22 @@
+service: lambda-jaxrs-cdi
+
+frameworkVersion: ">=1.2.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: java8
+  stage: demo
+  region: eu-central-1
+  memorySize: 256
+  timeout: 20
+
+package:
+  artifact: target/lambda-jaxrs-cdi.jar
+
+functions:
+  api:
+    handler: de.serverlessbuch.lambda.LambdaHandler
+    events:
+      - http:
+          path: /{proxy+}
+          method: any
