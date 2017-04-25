@@ -1,5 +1,6 @@
 package de.serverlessbuch.lambda.jaxrs.books;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -13,6 +14,7 @@ import java.util.List;
  * @author Niko Köbler, http://www.n-k.de, @dasniko
  */
 @Path("books")
+@RequestScoped
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class BooksController {
