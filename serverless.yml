@@ -11,7 +11,7 @@ provider:
   timeout: 20
 
 package:
-  artifact: build/distributions/lambda-jaxrs-cdi.zip
+  artifact: target/lambda-jaxrs-cdi.jar
 
 functions:
   api:
