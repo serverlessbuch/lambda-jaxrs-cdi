@@ -19,7 +19,7 @@ public class ConstraintViolationExceptionMapper implements ExceptionMapper<Const
     public Response toResponse(ConstraintViolationException violation) {
 
         List<String> messages = violation.getConstraintViolations().stream()
-                .map(v -> String.format("{} (path: {})", v.getMessage(), v.getPropertyPath()))
+                .map(v -> String.format("%s (path: %s)", v.getMessage(), v.getPropertyPath()))
                 .collect(Collectors.toList());
         int statusCode = ValidationHelper.getResponseStatus(violation).getStatusCode();
 
