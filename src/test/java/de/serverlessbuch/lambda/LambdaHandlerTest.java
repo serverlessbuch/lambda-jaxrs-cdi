@@ -14,6 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * @author Niko Köbler, http://www.n-k.de, @dasniko
@@ -49,7 +50,9 @@ public class LambdaHandlerTest {
         request.setBody("{\"author\":\"foo\"}");
         request.setHeaders(Collections.singletonMap("Content-Type", "application/json"));
         AwsProxyResponse response = handler.handleRequest(request, context);
-        System.out.println(response.getBody());
+
+        assertEquals(400, response.getStatusCode());
+        assertTrue(response.getBody().contains("addBook.arg0.title"));
     }
 
 }
