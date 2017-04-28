@@ -7,7 +7,7 @@ provider:
   runtime: java8
   stage: demo
   region: eu-central-1
-  memorySize: 256
+  memorySize: 512
   timeout: 20
   deploymentBucket: dasniko.serverless.deployments.${self:provider.region}
 
@@ -21,3 +21,4 @@ functions:
       - http:
           path: /{proxy+}
           method: any
+          private: true
