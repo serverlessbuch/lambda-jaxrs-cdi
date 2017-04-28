@@ -2,6 +2,7 @@ package de.serverlessbuch.lambda.jaxrs.books;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -29,7 +30,7 @@ public class BooksController {
     }
 
     @POST
-    public List<Book> addBook(Book book) {
+    public List<Book> addBook(@Valid Book book) {
         List<Book> books = service.addBook(book);
         return books;
     }

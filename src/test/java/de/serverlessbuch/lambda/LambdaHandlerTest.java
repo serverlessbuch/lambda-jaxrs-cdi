@@ -10,6 +10,7 @@ import de.serverlessbuch.lambda.jaxrs.books.Book;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -39,6 +40,16 @@ public class LambdaHandlerTest {
         List<Book> books = objectMapper.readValue(response.getBody(), List.class);
         assertEquals(200, response.getStatusCode());
         assertEquals(2, books.size());
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testAddInvalidBook() throws IOException {
+        AwsProxyRequest request = new AwsProxyRequestBuilder("/books", "POST").build();
+        request.setBody("{\"author\":\"foo\"}");
+        request.setHeaders(Collections.singletonMap("Content-Type", "application/json"));
+        AwsProxyResponse response = handler.handleRequest(request, context);
+        System.out.println(response.getBody());
     }
 
 }

@@ -5,8 +5,10 @@ import com.amazonaws.serverless.proxy.internal.model.AwsProxyResponse;
 import com.amazonaws.serverless.proxy.jersey.JerseyLambdaContainerHandler;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import de.serverlessbuch.lambda.jaxrs.ValidationExceptionMapper;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.glassfish.jersey.server.ServerProperties;
 import org.jboss.weld.environment.se.Weld;
 import org.slf4j.bridge.SLF4JBridgeHandler;
 
@@ -28,6 +30,8 @@ public class LambdaHandler implements RequestHandler<AwsProxyRequest, AwsProxyRe
 
             ResourceConfig jerseyApplication = new ResourceConfig()
                     .packages("de.serverlessbuch.lambda.jaxrs")
+                    .property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true)
+                    .register(ValidationExceptionMapper.class)
                     .register(JacksonFeature.class);
             handler = JerseyLambdaContainerHandler.getAwsProxyHandler(jerseyApplication);
 
