@@ -1,4 +1,4 @@
-package de.serverlessbuch.lambda.jaxrs;
+package de.serverlessbuch.jaxrs;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;

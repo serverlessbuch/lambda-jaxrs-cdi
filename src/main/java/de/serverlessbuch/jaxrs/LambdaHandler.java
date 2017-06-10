@@ -1,4 +1,4 @@
-package de.serverlessbuch.lambda;
+package de.serverlessbuch.jaxrs;
 
 import com.amazonaws.serverless.proxy.internal.model.AwsProxyRequest;
 import com.amazonaws.serverless.proxy.internal.model.AwsProxyResponse;
@@ -27,7 +27,7 @@ public class LambdaHandler implements RequestHandler<AwsProxyRequest, AwsProxyRe
             weld.initialize();
 
             ResourceConfig jerseyApplication = new ResourceConfig()
-                    .packages("de.serverlessbuch.lambda.jaxrs")
+                    .packages("de.serverlessbuch.jaxrs")
                     .register(JacksonFeature.class);
             handler = JerseyLambdaContainerHandler.getAwsProxyHandler(jerseyApplication);
 

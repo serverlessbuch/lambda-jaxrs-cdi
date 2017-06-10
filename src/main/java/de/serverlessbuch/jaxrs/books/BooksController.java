@@ -1,4 +1,4 @@
-package de.serverlessbuch.lambda.jaxrs.books;
+package de.serverlessbuch.jaxrs.books;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

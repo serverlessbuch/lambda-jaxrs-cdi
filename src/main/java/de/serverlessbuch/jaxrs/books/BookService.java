@@ -1,4 +1,4 @@
-package de.serverlessbuch.lambda.jaxrs.books;
+package de.serverlessbuch.jaxrs.books;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

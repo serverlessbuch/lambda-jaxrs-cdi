@@ -1,4 +1,4 @@
-package de.serverlessbuch.lambda;
+package de.serverlessbuch.jaxrs;
 
 import com.amazonaws.serverless.proxy.internal.model.AwsProxyRequest;
 import com.amazonaws.serverless.proxy.internal.model.AwsProxyResponse;
@@ -6,7 +6,7 @@ import com.amazonaws.serverless.proxy.internal.testutils.AwsProxyRequestBuilder;
 import com.amazonaws.serverless.proxy.internal.testutils.MockLambdaContext;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import de.serverlessbuch.lambda.jaxrs.books.Book;
+import de.serverlessbuch.jaxrs.books.Book;
 import org.junit.Test;
 
 import java.io.IOException;

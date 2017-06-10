@@ -1,4 +1,4 @@
-package de.serverlessbuch.lambda.jaxrs;
+package de.serverlessbuch.jaxrs;
 
 import org.glassfish.jersey.server.validation.internal.ValidationHelper;
 

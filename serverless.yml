@@ -16,7 +16,7 @@ package:
 
 functions:
   api:
-    handler: de.serverlessbuch.lambda.LambdaHandler
+    handler: de.serverlessbuch.jaxrs.LambdaHandler
     events:
       - http:
           path: /{proxy+}
